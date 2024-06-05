@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.Builder;
 import lombok.Data;
 
@@ -14,7 +16,7 @@ import java.util.Date;
 @Data
 @Builder
 public class PollutionReport {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long reportId;
@@ -33,4 +35,10 @@ public class PollutionReport {
     private Double latitude;
 
     private Double longitude;
+
+    @ManyToOne
+    private User user;
+
+    @OneToOne
+    private CleanUpEvent cleanUpEvent;
 }
