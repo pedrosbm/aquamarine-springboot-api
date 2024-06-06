@@ -14,12 +14,10 @@ public class AquamarineApplication {
 
 	@GetMapping
 	public ResponseEntity<String> getResponse(){
-		return ResponseEntity.ok("working");
+		return ResponseEntity.ok("Aquamarine online! Acesse a documentação em:http://localhost:8080/swagger-ui/index.html");
 	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(AquamarineApplication.class, args);
 	}
-
-	//TODO Fazer relacionamento entre as classes
 }

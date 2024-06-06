@@ -34,7 +34,7 @@ public class PollutionReportController {
     private PollutionReportRepository repository;
 
     @GetMapping("/List")
-    public ResponseEntity<Page<PollutionReport>> list(@PageableDefault(size = 10, sort = "reportDate") Pageable pageable) {
+    public ResponseEntity<Page<PollutionReport>> list(@PageableDefault(size = 10) Pageable pageable) {
         Page<PollutionReport> page = repository.findAll(pageable);
         return ResponseEntity.ok(page);
     }

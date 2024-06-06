@@ -55,7 +55,7 @@ public class UserController {
     @PutMapping
     @ResponseStatus(CREATED)
     public ResponseEntity<User> update(@RequestBody @Valid User user) {
-        verify(user.getId());
+        verify(user.getUserId());
 
         return ResponseEntity.ok(repository.save(user));
     }

@@ -25,7 +25,7 @@ import com.novatech.aquamarine.repository.EventParticipantsRepository;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping
+@RequestMapping("/Participants")
 public class EventParticipantsController {
     
     private EventParticipantsRepository repository;

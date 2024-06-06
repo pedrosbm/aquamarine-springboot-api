@@ -14,7 +14,6 @@ import lombok.Data;
 
 @Entity
 @Data
-@Builder
 public class EventParticipants {
     
     @Id
