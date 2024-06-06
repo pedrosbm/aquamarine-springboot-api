@@ -1,5 +1,9 @@
 package com.novatech.aquamarine.model;
 
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,7 +14,6 @@ import jakarta.persistence.OneToOne;
 import lombok.Builder;
 import lombok.Data;
 
-import java.util.Date;
 
 @Entity
 @Data
@@ -21,7 +24,8 @@ public class PollutionReport {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long reportId;
 
-    private Date reportDate;
+    @DateTimeFormat(pattern = "DD/MM/YYYY")
+    private LocalDate reportDate;
 
     @Lob
     private byte[] reportPicture;
