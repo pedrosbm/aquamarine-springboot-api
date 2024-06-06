@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Data;
 
@@ -17,6 +18,8 @@ public class User {
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+    
     @CPF
     private Long userCpf;
 
@@ -29,6 +32,7 @@ public class User {
 
     private String userAdress;
 
+    @NotBlank
     private String userPassword;
 
     private String userType;
