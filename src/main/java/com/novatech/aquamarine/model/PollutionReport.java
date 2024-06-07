@@ -1,5 +1,6 @@
 package com.novatech.aquamarine.model;
 
+import java.sql.Blob;
 import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -13,9 +14,8 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.Data;
 
-
-@Entity
 @Data
+@Entity
 public class PollutionReport {
 
     @Id
@@ -25,8 +25,7 @@ public class PollutionReport {
     @DateTimeFormat(pattern = "DD/MM/YYYY")
     private LocalDate reportDate;
 
-    @Lob
-    private byte[] reportPicture;
+    private Blob reportPicture;
 
     private String reportDescription;
 

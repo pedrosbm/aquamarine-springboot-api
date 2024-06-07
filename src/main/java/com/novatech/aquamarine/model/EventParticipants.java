@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Entity
@@ -19,13 +20,12 @@ public class EventParticipants {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long participantId;
 
-    @DateTimeFormat( pattern = "dd/mm/yyyy")
+    @DateTimeFormat( pattern = "dd/MM/yyyy")
     private LocalDate registrationDate;
 
-    @ManyToOne
+    @OneToOne
     private User user;
 
     @ManyToOne
     private CleanUpEvent cleanUpEvent;
-
 }

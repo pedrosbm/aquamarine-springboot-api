@@ -5,7 +5,12 @@ import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.FOUND;
 import static org.springframework.http.HttpStatus.OK;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,6 +44,21 @@ public class CleanUpEventController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    @GetMapping("/Report/{id}")
+    public ResponseEntity<List<CleanUpEvent>> getByReport(@PathVariable Long reportId) {
+        List<CleanUpEvent> event = repository.findByPollutionReportReportId(reportId);
+
+        return ResponseEntity.ok(event);
+    }
+    
+    @GetMapping("/User/{id}")
+    public ResponseEntity<Page<CleanUpEvent>> getByUser(@PathVariable Long userId, @PageableDefault(size = 5) Pageable pageable) {
+        Page<CleanUpEvent> page = repository.findByEventParticipantsUserUserId(userId, pageable);
+
+        return ResponseEntity.ok(page);
+    }
+    
 
     @PostMapping
     @ResponseStatus(CREATED)

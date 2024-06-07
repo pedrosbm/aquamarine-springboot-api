@@ -5,8 +5,9 @@ import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.FOUND;
 import static org.springframework.http.HttpStatus.OK;
 
-import java.util.List;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,9 +33,9 @@ public class EventParticipantsController {
 
     @GetMapping("/List")
     @ResponseStatus(FOUND)
-    public ResponseEntity<List<EventParticipants>> list() {
-            List<EventParticipants> clientes = repository.findAll();
-            return ResponseEntity.ok(clientes);
+    public ResponseEntity<Page<EventParticipants>> list(@PageableDefault(size = 5) Pageable pageable) {
+            Page<EventParticipants> page = repository.findAll(pageable);
+            return ResponseEntity.ok(page);
     }
 
     @GetMapping("/{id}")
