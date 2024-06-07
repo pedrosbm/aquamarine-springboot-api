@@ -14,7 +14,7 @@ public class AquamarineApplication {
 
 	@GetMapping
 	public ResponseEntity<String> getResponse(){
-		return ResponseEntity.ok("Aquamarine online! Acesse a documentação em:http://localhost:8080/swagger-ui/index.html");
+		return ResponseEntity.ok("Aquamarine online! Acesse a documentação em:https://aquamarine-springboot-api-production.up.railway.app/swagger-ui/index.html");
 	}
 
 	public static void main(String[] args) {
