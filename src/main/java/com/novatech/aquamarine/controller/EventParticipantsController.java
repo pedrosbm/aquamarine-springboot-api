@@ -62,7 +62,7 @@ public class EventParticipantsController {
     @PutMapping
     @ResponseStatus(CREATED)
     public ResponseEntity<EventParticipants> update(@RequestBody @Valid EventParticipants EventParticipants) {
-        verify(EventParticipants.getParticipantId());
+        verify(EventParticipants.getUser().getUserId());
 
         return ResponseEntity.ok(repository.save(EventParticipants));
     }

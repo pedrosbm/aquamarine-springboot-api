@@ -27,6 +27,6 @@ public class CleanUpEvent {
     @OneToOne
     private PollutionReport pollutionReport;
 
-    @OneToMany
+    @OneToMany(mappedBy = "cleanUpEvent")
     private List<EventParticipants> eventParticipants;
 }

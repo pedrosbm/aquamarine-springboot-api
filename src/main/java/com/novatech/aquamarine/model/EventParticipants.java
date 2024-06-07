@@ -15,12 +15,12 @@ import lombok.Data;
 @Entity
 @Data
 public class EventParticipants {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long participantId;
+    private Long id;
 
-    @DateTimeFormat( pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate registrationDate;
 
     @OneToOne
